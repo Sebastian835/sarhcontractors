@@ -1,1 +1,1625 @@
-Hola Mundo :)
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARH Contractors LLC — Professional Remodeling Done Right</title>
+    <link rel="icon" type="image/png" href="img/logo.ico">
+    <meta name="description"
+        content="SARH Contractors LLC — remodeling, painting, cleaning and maintenance services in Alexandria, VA. Licensed, insured, and precise.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1B211F;
+            --ink-soft: #3A423F;
+            --teal: #12786D;
+            --teal-deep: #0B4F48;
+            --teal-pale: #E4F1EE;
+            --concrete: #8B8D8A;
+            --concrete-line: rgba(27, 33, 31, 0.16);
+            --paper: #F6F4EF;
+            --paper-dim: #ECE8DF;
+            --white: #FFFFFF;
+            --signal: #E3592A;
+            --signal-deep: #B8431C;
+            --radius: 2px;
+            --wrap: 1180px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .wrap {
+            max-width: var(--wrap);
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.01em;
+            line-height: 0.94;
+            margin: 0;
+            color: var(--ink);
+        }
+
+        .mono {
+            font-family: 'Space Mono', monospace;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow {
+            font-family: 'Space Mono', monospace;
+            font-size: 12.5px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--teal-deep);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 22px;
+            height: 2px;
+            background: var(--signal);
+            display: inline-block;
+        }
+
+        /* ---------- corner-tick / dimension frame — signature device ---------- */
+        .tickframe {
+            position: relative;
+        }
+
+        .tickframe::before,
+        .tickframe::after,
+        .tickframe .tick-br,
+        .tickframe .tick-bl {
+            content: "";
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            border: 2px solid var(--teal);
+            z-index: 3;
+        }
+
+        .tickframe::before {
+            top: -9px;
+            left: -9px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .tickframe::after {
+            top: -9px;
+            right: -9px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .tickframe .tick-bl {
+            bottom: -9px;
+            left: -9px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .tickframe .tick-br {
+            bottom: -9px;
+            right: -9px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .dim-label {
+            position: absolute;
+            font-family: 'Space Mono', monospace;
+            font-size: 10.5px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            background: var(--ink);
+            color: var(--paper);
+            padding: 4px 9px;
+            z-index: 4;
+        }
+
+        /* ============ NAVBAR ============ */
+        header.site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(246, 244, 239, 0.92);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--concrete-line);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 32px;
+            max-width: var(--wrap);
+            margin: 0 auto;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-logo-tag {
+            /* placeholder slot reserved for the company logo mark */
+            width: 42px;
+            height: 42px;
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .brand-logo-tag img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .brand-word {
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-weight: 800;
+            font-size: 21px;
+            letter-spacing: 0.01em;
+            line-height: 1;
+            text-transform: uppercase;
+            color: var(--ink);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-word span.sub {
+            font-family: 'Space Mono', monospace;
+            font-size: 9.5px;
+            letter-spacing: 0.22em;
+            color: var(--teal-deep);
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        nav.links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav.links a {
+            text-decoration: none;
+            font-size: 13.5px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: var(--ink-soft);
+            position: relative;
+            padding: 4px 0;
+        }
+
+        nav.links a:hover {
+            color: var(--teal-deep);
+        }
+
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 11px 20px;
+            font-family: 'Space Mono', monospace;
+            font-size: 12.5px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: var(--radius);
+            border: 2px solid transparent;
+            transition: transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-solid {
+            background: var(--signal);
+            color: var(--white);
+        }
+
+        .btn-solid:hover {
+            background: var(--signal-deep);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--ink);
+            border-color: var(--ink);
+        }
+
+        .btn-outline:hover {
+            background: var(--ink);
+            color: var(--paper);
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            color: var(--white);
+            border-color: rgba(255, 255, 255, 0.65);
+        }
+
+        .btn-outline-light:hover {
+            background: var(--white);
+            color: var(--ink);
+        }
+
+        .btn-teal {
+            background: var(--teal);
+            color: var(--white);
+        }
+
+        .btn-teal:hover {
+            background: var(--teal-deep);
+        }
+
+        .nav-toggle {
+            display: none;
+        }
+
+        /* ============ HERO ============ */
+        .hero {
+            position: relative;
+            min-height: 100svh;
+            display: flex;
+            align-items: flex-end;
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .hero-media {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(180deg, rgba(11, 22, 20, 0.35) 0%, rgba(9, 15, 14, 0.55) 55%, rgba(6, 9, 9, 0.92) 100%), url('images/hero-deck.jpg');
+            background-size: cover;
+            background-position: center 30%;
+        }
+
+        .hero-grid-overlay {
+            position: absolute;
+            inset: 0;
+            background-image:
+                repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 80px),
+                repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 80px);
+            mix-blend-mode: screen;
+            opacity: .55;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: var(--wrap);
+            margin: 0 auto;
+            padding: 170px 32px 76px;
+        }
+
+        .hero-tag-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 26px;
+        }
+
+        .hero-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 11.5px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 6px 12px;
+            color: var(--paper);
+        }
+
+        .hero-tag strong {
+            color: var(--signal);
+            font-weight: 700;
+        }
+
+        h1.hero-h {
+            font-size: clamp(46px, 8vw, 108px);
+            max-width: 16ch;
+            color: var(--white);
+        }
+
+        h1.hero-h .accent {
+            color: var(--teal);
+        }
+
+        .hero-sub {
+            max-width: 540px;
+            margin: 26px 0 38px;
+            font-size: 17px;
+            line-height: 1.6;
+            color: rgba(246, 244, 239, 0.86);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-foot {
+            position: relative;
+            z-index: 2;
+            border-top: 1px solid rgba(255, 255, 255, 0.22);
+        }
+
+        .hero-foot-inner {
+            max-width: var(--wrap);
+            margin: 0 auto;
+            padding: 18px 32px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-family: 'Space Mono', monospace;
+            font-size: 11.5px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(246, 244, 239, 0.7);
+        }
+
+        /* ============ SECTION SCAFFOLDING ============ */
+        section {
+            position: relative;
+        }
+
+        .section-pad {
+            padding: 110px 0;
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 40px;
+            margin-bottom: 56px;
+            flex-wrap: wrap;
+        }
+
+        .section-head h2 {
+            font-size: clamp(34px, 4.4vw, 54px);
+        }
+
+        .section-head .lede {
+            max-width: 400px;
+            font-size: 15.5px;
+            line-height: 1.6;
+            color: var(--ink-soft);
+            padding-bottom: 6px;
+        }
+
+        .tape-rule {
+            height: 26px;
+            width: 100%;
+            background-repeat: repeat-x;
+            background-size: 14px 100%;
+            background-image: linear-gradient(90deg, var(--concrete-line) 1px, transparent 1px);
+            border-top: 1px solid var(--concrete-line);
+            border-bottom: 1px solid var(--concrete-line);
+            position: relative;
+        }
+
+        .tape-rule::after {
+            content: "1506 COMMONWEALTH AVE · ALEXANDRIA, VA 22301 — SARH CONTRACTORS LLC — 1506 COMMONWEALTH AVE · ALEXANDRIA, VA 22301 — SARH CONTRACTORS LLC — ";
+            font-family: 'Space Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            color: var(--concrete);
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            white-space: nowrap;
+            padding-left: 8px;
+        }
+
+        /* ---------- trust strip ---------- */
+        .trust {
+            background: var(--ink);
+            color: var(--paper);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: rgba(246, 244, 239, 0.14);
+        }
+
+        .trust-item {
+            background: var(--ink);
+            padding: 44px 36px;
+        }
+
+        .trust-item .mono {
+            font-size: 11px;
+            color: var(--teal);
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .trust-item h3 {
+            font-size: 26px;
+            color: var(--paper);
+            margin-bottom: 10px;
+        }
+
+        .trust-item p {
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: rgba(246, 244, 239, 0.72);
+            margin: 0;
+        }
+
+        /* ---------- who we are ---------- */
+        .who {
+            background: var(--paper);
+        }
+
+        .who-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .who-photo-wrap {
+            position: relative;
+            padding: 14px;
+        }
+
+        .who-photo {
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            filter: saturate(0.96) contrast(1.03);
+        }
+
+        .who-copy p {
+            font-size: 16px;
+            line-height: 1.75;
+            color: var(--ink-soft);
+            margin: 0 0 18px;
+        }
+
+        .who-owner {
+            margin-top: 28px;
+            padding-top: 22px;
+            border-top: 1px solid var(--concrete-line);
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--teal-deep);
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 36px;
+        }
+
+        .mv-card {
+            background: var(--white);
+            border: 1px solid var(--concrete-line);
+            border-left: 3px solid var(--teal);
+            padding: 22px 24px;
+        }
+
+        .mv-card .mono {
+            font-size: 11px;
+            color: var(--signal);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .mv-card p {
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: var(--ink-soft);
+            margin: 0;
+        }
+
+        /* ---------- services ---------- */
+        .services {
+            background: var(--paper-dim);
+        }
+
+        .svc-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--concrete-line);
+            border: 1px solid var(--concrete-line);
+        }
+
+        .svc-card {
+            background: var(--paper-dim);
+            padding: 34px 28px 30px;
+            transition: background .2s ease;
+        }
+
+        .svc-card:hover {
+            background: var(--white);
+        }
+
+        .svc-card .svc-index {
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            color: var(--concrete);
+            display: block;
+            margin-bottom: 22px;
+        }
+
+        .svc-card h3 {
+            font-size: 23px;
+            margin-bottom: 16px;
+            color: var(--teal-deep);
+        }
+
+        .svc-card ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            font-size: 13.5px;
+            line-height: 1.9;
+            color: var(--ink-soft);
+        }
+
+        .svc-card ul li {
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .svc-card ul li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--signal);
+        }
+
+        /* ---------- gallery / carousel ---------- */
+        .gallery {
+            background: var(--ink);
+            color: var(--paper);
+            overflow: hidden;
+        }
+
+        .gallery .section-head h2 {
+            color: var(--paper);
+        }
+
+        .gallery .section-head .lede {
+            color: rgba(246, 244, 239, 0.68);
+        }
+
+        .gallery .eyebrow {
+            color: var(--teal);
+        }
+
+        .gallery .eyebrow::before {
+            background: var(--signal);
+        }
+
+        .carousel-wrap {
+            position: relative;
+        }
+
+        .carousel {
+            display: flex;
+            gap: 18px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 6px 32px 26px;
+            margin: 0 -32px;
+            scrollbar-width: none;
+        }
+
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel figure {
+            margin: 0;
+            flex: 0 0 auto;
+            width: 340px;
+            scroll-snap-align: start;
+            position: relative;
+        }
+
+        .carousel .cframe {
+            width: 340px;
+            height: 420px;
+            overflow: hidden;
+            position: relative;
+            background: #000;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(0.98);
+            transition: transform .5s ease;
+        }
+
+        .carousel figure:hover img {
+            transform: scale(1.06);
+        }
+
+        .carousel figcaption {
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(246, 244, 239, 0.62);
+            padding-top: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .carousel figcaption .no {
+            color: var(--teal);
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 6px;
+        }
+
+        .carousel-btns {
+            display: flex;
+            gap: 12px;
+        }
+
+        .cbtn {
+            width: 46px;
+            height: 46px;
+            border: 1px solid rgba(246, 244, 239, 0.35);
+            background: transparent;
+            color: var(--paper);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .2s ease, border-color .2s ease;
+        }
+
+        .cbtn:hover {
+            background: var(--teal);
+            border-color: var(--teal);
+        }
+
+        .carousel-hint {
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(246, 244, 239, 0.5);
+        }
+
+        /* ---------- why choose us ---------- */
+        .why {
+            background: var(--paper);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .why-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border-top: 1px solid var(--concrete-line);
+        }
+
+        .why-list li {
+            display: flex;
+            gap: 22px;
+            align-items: flex-start;
+            padding: 22px 0;
+            border-bottom: 1px solid var(--concrete-line);
+        }
+
+        .why-mark {
+            flex: 0 0 auto;
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--teal);
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 14px;
+            margin-top: 2px;
+        }
+
+        .why-copy h4 {
+            margin: 0 0 6px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 16.5px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .why-copy p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--ink-soft);
+        }
+
+        .why-panel {
+            background: var(--ink);
+            color: var(--paper);
+            padding: 44px 38px;
+            position: relative;
+        }
+
+        .why-panel .quote-mark {
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 64px;
+            color: var(--teal);
+            line-height: 0.6;
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .why-panel blockquote {
+            margin: 0 0 26px;
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-weight: 700;
+            font-size: 26px;
+            text-transform: uppercase;
+            line-height: 1.15;
+        }
+
+        .why-panel .attrib {
+            font-family: 'Space Mono', monospace;
+            font-size: 11.5px;
+            letter-spacing: 0.1em;
+            color: rgba(246, 244, 239, 0.6);
+            text-transform: uppercase;
+        }
+
+        .why-stats {
+            margin-top: 34px;
+            padding-top: 26px;
+            border-top: 1px solid rgba(246, 244, 239, 0.2);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .why-stats .num {
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 38px;
+            color: var(--white);
+        }
+
+        .why-stats .lbl {
+            font-family: 'Space Mono', monospace;
+            font-size: 10.5px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(246, 244, 239, 0.6);
+        }
+
+        /* ---------- location / contact ---------- */
+        .location {
+            background: var(--paper-dim);
+        }
+
+        .loc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border: 1px solid var(--concrete-line);
+        }
+
+        .loc-info {
+            background: var(--white);
+            padding: 52px 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 28px;
+        }
+
+        .loc-info h2 {
+            font-size: clamp(30px, 3.6vw, 44px);
+            margin-bottom: 6px;
+        }
+
+        .loc-addr {
+            font-size: 15.5px;
+            line-height: 1.7;
+            color: var(--ink-soft);
+        }
+
+        .contact-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 6px;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 18px;
+            border: 1px solid var(--concrete-line);
+            text-decoration: none;
+            color: var(--ink);
+            transition: border-color .2s ease, background .2s ease, transform .15s ease;
+        }
+
+        .contact-row:hover {
+            border-color: var(--teal);
+            background: var(--teal-pale);
+            transform: translateX(4px);
+        }
+
+        .contact-row .ic {
+            flex: 0 0 auto;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--teal);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-row .txt .lbl {
+            font-family: 'Space Mono', monospace;
+            font-size: 10.5px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--concrete);
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .contact-row .txt .val {
+            font-size: 15.5px;
+            font-weight: 600;
+        }
+
+        .loc-note {
+            font-size: 12px;
+            line-height: 1.6;
+            color: var(--concrete);
+            font-family: 'Space Mono', monospace;
+            letter-spacing: 0.02em;
+        }
+
+        .loc-map {
+            position: relative;
+            min-height: 420px;
+            filter: grayscale(0.15) contrast(1.05);
+        }
+
+        .loc-map iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 420px;
+            border: 0;
+            display: block;
+        }
+
+        .loc-map-tag {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--ink);
+            color: var(--paper);
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 9px 14px;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .loc-map-tag::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--signal);
+        }
+
+        /* ---------- final CTA ---------- */
+        .final-cta {
+            background: var(--teal-deep);
+            color: var(--white);
+            text-align: center;
+            padding: 100px 32px;
+        }
+
+        .final-cta h2 {
+            color: var(--white);
+            font-size: clamp(36px, 6vw, 72px);
+            max-width: 16ch;
+            margin: 0 auto 22px;
+        }
+
+        .final-cta p {
+            font-size: 16px;
+            color: rgba(246, 244, 239, 0.8);
+            max-width: 480px;
+            margin: 0 auto 38px;
+            line-height: 1.6;
+        }
+
+        .final-cta .hero-actions {
+            justify-content: center;
+        }
+
+        /* ---------- footer ---------- */
+        footer {
+            background: var(--ink);
+            color: rgba(246, 244, 239, 0.62);
+            padding: 56px 0 26px;
+        }
+
+        .foot-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding-bottom: 38px;
+            border-bottom: 1px solid rgba(246, 244, 239, 0.14);
+            margin-bottom: 26px;
+        }
+
+        .foot-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .foot-brand .brand-logo-tag img {
+            filter: brightness(0) invert(1);
+            opacity: 0.92;
+        }
+
+        .foot-brand .brand-word {
+            color: var(--paper);
+        }
+
+        .foot-brand .brand-word span.sub {
+            color: var(--teal);
+        }
+
+        .foot-tagline {
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 22px;
+            text-transform: uppercase;
+            color: var(--paper);
+            max-width: 360px;
+        }
+
+        .foot-links {
+            display: flex;
+            gap: 56px;
+            flex-wrap: wrap;
+        }
+
+        .foot-col .mono {
+            font-size: 11px;
+            color: var(--teal);
+            display: block;
+            margin-bottom: 14px;
+        }
+
+        .foot-col a,
+        .foot-col span {
+            display: block;
+            font-size: 13.5px;
+            color: rgba(246, 244, 239, 0.72);
+            text-decoration: none;
+            margin-bottom: 9px;
+        }
+
+        .foot-col a:hover {
+            color: var(--paper);
+        }
+
+        .foot-bottom {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: rgba(246, 244, 239, 0.4);
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width:980px) {
+
+            .who-grid,
+            .why-grid,
+            .loc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .loc-map {
+                min-height: 320px;
+            }
+
+            .svc-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mv-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width:760px) {
+            nav.links {
+                display: none;
+            }
+
+            .nav-cta .btn-outline {
+                display: none;
+            }
+
+            .svc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-inner {
+                padding-top: 150px;
+            }
+
+            .section-pad {
+                padding: 76px 0;
+            }
+
+            .loc-info {
+                padding: 38px 26px;
+            }
+
+            .foot-top {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============ NAV ============ -->
+    <header class="site-nav">
+        <div class="nav-inner">
+            <a href="#top" class="brand">
+                <span class="brand-logo-tag"><!-- LOGO SLOT --><img src="img/logo.png"
+                        alt="SARH Contractors LLC logo"></span>
+                <span class="brand-word">SARH CONTRACTORS<span class="sub">LLC · Alexandria, VA</span></span>
+            </a>
+            <nav class="links">
+                <a href="#who">Who We Are</a>
+                <a href="#services">Services</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#why">Why Us</a>
+                <a href="#location">Location</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="mailto:Sarhcontractorsllc63@gmail.com" class="btn btn-outline">Email</a>
+                <a href="tel:+17035550148" class="btn btn-solid">Call Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+        <div class="hero-media"></div>
+        <div class="hero-grid-overlay"></div>
+        <div class="hero-inner">
+            <div class="hero-tag-row">
+                <span class="hero-tag">Licensed &amp; Insured</span>
+                <span class="hero-tag"><strong>5+</strong>&nbsp;Years In The Field</span>
+                <span class="hero-tag">Residential &amp; Commercial</span>
+            </div>
+            <h1 class="hero-h">Professional Remodeling <span class="accent">Done Right.</span></h1>
+            <p class="hero-sub">SARH Contractors LLC builds, paints, repairs, and cleans with the same care as if it
+                were our own home — precise measurements, honest timelines, and craftsmanship you can inspect.</p>
+            <div class="hero-actions">
+                <a href="tel:+17035550148" class="btn btn-solid">Call (703) 555‑0148</a>
+                <a href="mailto:Sarhcontractorsllc63@gmail.com" class="btn btn-outline-light">Email Our Team</a>
+            </div>
+        </div>
+        <div class="hero-foot">
+            <div class="hero-foot-inner">
+                <span>Owner — Santos Rivera</span>
+                <span>1506 Commonwealth Ave, Alexandria, VA 22301</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ TRUST STRIP ============ -->
+    <section class="trust">
+        <div class="trust-grid">
+            <div class="trust-item">
+                <span class="mono">Field-Tested</span>
+                <h3>Experience</h3>
+                <p>More than five years turning worn-out rooms and buildings into finished, functional spaces.</p>
+            </div>
+            <div class="trust-item">
+                <span class="mono">On Every Job</span>
+                <h3>Professionalism</h3>
+                <p>A dedicated crew that shows up on schedule, communicates clearly, and treats every property with
+                    respect.</p>
+            </div>
+            <div class="trust-item">
+                <span class="mono">Non-Negotiable</span>
+                <h3>Quality</h3>
+                <p>Excellence in every project we complete — from a single patched wall to a full renovation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WHO WE ARE ============ -->
+    <section class="who section-pad" id="who">
+        <div class="wrap">
+            <div class="who-grid">
+                <div class="who-photo-wrap tickframe">
+                    <span class="tick-bl"></span><span class="tick-br"></span>
+                    <img class="who-photo" src="img/who.png"
+                        alt="SARH Contractors crew member working on a residential roof">
+                    <span class="dim-label" style="bottom:24px; left:24px;">On Site — Alexandria, VA</span>
+                </div>
+                <div class="who-copy">
+                    <div class="eyebrow">Who We Are</div>
+                    <h2 style="font-size:clamp(30px,4vw,46px); margin-bottom:22px;">Led on-site, not from behind a desk.
+                    </h2>
+                    <p>At SARH Contractors LLC, every remodeling project is a chance to turn a space into something
+                        functional, modern, and genuinely well built. Led by <strong>Santos Alexander Rivera
+                            Hernández</strong>, we've served homeowners and businesses across the area with
+                        professionalism, integrity, and close attention to detail.</p>
+                    <p>From small repairs to complete home renovations, our team focuses on solid workmanship, efficient
+                        project management, and a level of communication that keeps you informed at every stage —
+                        because trust, clear communication, and craftsmanship are what a successful project is built on.
+                    </p>
+                    <div class="mv-grid">
+                        <div class="mv-card">
+                            <span class="mono">Mission</span>
+                            <p>Deliver exceptional remodeling through quality craftsmanship, practical solutions, and
+                                outstanding service — building spaces that are as functional as they are beautiful.</p>
+                        </div>
+                        <div class="mv-card">
+                            <span class="mono">Vision</span>
+                            <p>To become one of Virginia's most trusted remodeling companies — known for excellence,
+                                professionalism, integrity, and satisfied clients.</p>
+                        </div>
+                    </div>
+                    <div class="who-owner">Santos Rivera — Owner &amp; Lead Contractor</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="tape-rule"></div>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="services section-pad" id="services">
+        <div class="wrap">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">What We Do</div>
+                    <h2>Four crews.<br>One standard.</h2>
+                </div>
+                <p class="lede">From drywall to deep cleaning, every service is handled by the same crew philosophy:
+                    measure carefully, work cleanly, finish properly.</p>
+            </div>
+        </div>
+        <div class="svc-grid">
+            <div class="svc-card">
+                <span class="svc-index mono">Remodeling</span>
+                <h3>Renovation</h3>
+                <ul>
+                    <li>Interior remodeling</li>
+                    <li>Kitchen upgrades</li>
+                    <li>Bathroom remodeling</li>
+                    <li>Drywall install &amp; repair</li>
+                    <li>Minor carpentry</li>
+                    <li>Space improvements</li>
+                </ul>
+            </div>
+            <div class="svc-card">
+                <span class="svc-index mono">Painting</span>
+                <h3>Finishing</h3>
+                <ul>
+                    <li>Interior painting</li>
+                    <li>Exterior painting</li>
+                    <li>Walls, ceilings &amp; trim</li>
+                    <li>Surface prep &amp; priming</li>
+                    <li>Touch-ups</li>
+                    <li>Full color changes</li>
+                </ul>
+            </div>
+            <div class="svc-card">
+                <span class="svc-index mono">Cleaning</span>
+                <h3>Property Care</h3>
+                <ul>
+                    <li>Residential cleaning</li>
+                    <li>Deep cleaning</li>
+                    <li>Move-in / move-out</li>
+                    <li>Post-construction clean-up</li>
+                    <li>Property maintenance</li>
+                    <li>Surface sanitation</li>
+                </ul>
+            </div>
+            <div class="svc-card">
+                <span class="svc-index mono">Maintenance</span>
+                <h3>Repairs</h3>
+                <ul>
+                    <li>Property maintenance</li>
+                    <li>Minor repairs</li>
+                    <li>Preventive upkeep</li>
+                    <li>Fixture replacement</li>
+                    <li>Small fixes &amp; touch-ups</li>
+                    <li>Emergency response</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ GALLERY / CAROUSEL ============ -->
+    <section class="gallery section-pad" id="gallery">
+        <div class="wrap">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Work In Progress &amp; Completed</div>
+                    <h2>See the finish<br>before you call.</h2>
+                </div>
+                <p class="lede">A working record of real jobs — mid-project and completed — pulled straight from our
+                    crew's site photos.</p>
+            </div>
+        </div>
+        <div class="wrap carousel-wrap">
+            <div class="carousel" id="carousel">
+                <figure>
+                    <div class="cframe"><img src="img/1.jpg" alt="SARH Contractors project photo"></div>
+                </figure>
+                <figure>
+                    <div class="cframe"><img src="img/2.jpg" alt="SARH Contractors project photo"></div>
+                </figure>
+                <figure>
+                    <div class="cframe"><img src="img/3.jpg" alt="SARH Contractors project photo"></div>
+                </figure>
+                <figure>
+                    <div class="cframe"><img src="img/4.jpg" alt="SARH Contractors project photo"></div>
+                </figure>
+                <figure>
+                    <div class="cframe"><img src="img/5.jpg" alt="SARH Contractors project photo"></div>
+                </figure>
+                <figure>
+                    <div class="cframe"><img src="img/6.jpg" alt="SARH Contractors project photo"></div>
+                </figure>
+                <figure>
+                    <div class="cframe"><img src="img/7.jpg" alt="SARH Contractors project photo"></div>
+                </figure>
+                <figure>
+                    <div class="cframe"><img src="img/8.jpg" alt="SARH Contractors project photo"></div>
+                </figure>
+                <figure>
+                    <div class="cframe"><img src="img/9.jpg" alt="SARH Contractors project photo"></div>
+                </figure>
+                <figure>
+                    <div class="cframe"><img src="img/10.jpg" alt="SARH Contractors project photo"></div>
+                </figure>
+                <figure>
+                    <div class="cframe"><img src="img/11.jpg" alt="SARH Contractors project photo"></div>
+                </figure>
+                <figure>
+                    <div class="cframe"><img src="img/12.jpg" alt="SARH Contractors project photo"></div>
+                </figure>
+                <figure>
+                    <div class="cframe"><img src="img/13.jpg" alt="SARH Contractors project photo"></div>
+                </figure>
+                <figure>
+                    <div class="cframe"><img src="img/14.jpg" alt="SARH Contractors project photo"></div>
+                </figure>
+                <figure>
+                    <div class="cframe"><img src="img/15.jpg" alt="SARH Contractors project photo"></div>
+                </figure>
+            </div>
+            <div class="carousel-controls">
+                <span class="carousel-hint">Drag or scroll to browse the full set →</span>
+                <div class="carousel-btns">
+                    <button class="cbtn" id="prevBtn" aria-label="Previous images">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                    </button>
+                    <button class="cbtn" id="nextBtn" aria-label="Next images">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WHY CHOOSE US ============ -->
+    <section class="why section-pad" id="why">
+        <div class="wrap">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">The Benefit To Choosing Us</div>
+                    <h2>What you're actually<br>paying for.</h2>
+                </div>
+            </div>
+            <div class="why-grid">
+                <ul class="why-list">
+                    <li>
+                        <span class="why-mark">✓</span>
+                        <div class="why-copy">
+                            <h4>Quality Workmanship</h4>
+                            <p>We treat every project as if it were our own home — no shortcuts, no rushed finishes.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="why-mark">✓</span>
+                        <div class="why-copy">
+                            <h4>Reliable &amp; On-Time</h4>
+                            <p>We value your time and deliver according to the schedule we agree on.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="why-mark">✓</span>
+                        <div class="why-copy">
+                            <h4>Affordable Pricing</h4>
+                            <p>Competitive rates with satisfaction guaranteed — ask us for a reference quote on your
+                                project.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="why-mark">✓</span>
+                        <div class="why-copy">
+                            <h4>Fully Insured &amp; Professional</h4>
+                            <p>A licensed, experienced team you can trust inside your home or on your commercial
+                                property.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="why-mark">✓</span>
+                        <div class="why-copy">
+                            <h4>Customer-Focused Approach</h4>
+                            <p>We listen, adapt to your vision, and aim to exceed what you expected going in.</p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="why-panel">
+                    <span class="quote-mark">“</span>
+                    <blockquote>We believe trust, communication, and craftsmanship are the foundation of every
+                        successful project.</blockquote>
+                    <div class="attrib">— Santos Rivera, Owner, SARH Contractors LLC</div>
+                    <div class="why-stats">
+                        <div>
+                            <div class="num">5+</div>
+                            <div class="lbl">Years Experience</div>
+                        </div>
+                        <div>
+                            <div class="num">4</div>
+                            <div class="lbl">Service Lines</div>
+                        </div>
+                        <div>
+                            <div class="num">100%</div>
+                            <div class="lbl">Insured Crew</div>
+                        </div>
+                        <div>
+                            <div class="num">VA</div>
+                            <div class="lbl">Res. &amp; Commercial</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ LOCATION ============ -->
+    <section class="location section-pad" id="location">
+        <div class="wrap">
+            <div class="loc-grid">
+                <div class="loc-info">
+                    <div class="eyebrow">Find Us</div>
+                    <h2>Based in Alexandria.<br>Working across Virginia.</h2>
+                    <p class="loc-addr">1506 Commonwealth Ave<br>Alexandria, VA 22301</p>
+                    <div class="contact-buttons">
+                        <a class="contact-row" href="tel:+17035550148">
+                            <span class="ic">
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                            </span>
+                            <span class="txt"><span class="lbl">Call the crew</span><span class="val">(703)
+                                    555-0148</span></span>
+                        </a>
+                        <a class="contact-row" href="mailto:Sarhcontractorsllc63@gmail.com">
+                            <span class="ic">
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M4 4h16v16H4z" />
+                                    <path d="M22 6l-10 7L2 6" />
+                                </svg>
+                            </span>
+                            <span class="txt"><span class="lbl">Send an email</span><span
+                                    class="val">Sarhcontractorsllc63@gmail.com</span></span>
+                        </a>
+                    </div>
+                    <p class="loc-note">// Tap to call or email directly from your phone or desktop mail app.</p>
+                </div>
+                <div class="loc-map tickframe">
+                    <span class="tick-bl" style="border-color:var(--paper);"></span>
+                    <div class="loc-map-tag">Alexandria, VA</div>
+                    <iframe title="SARH Contractors LLC — location map, Commonwealth Ave, Alexandria, VA"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=-77.0650%2C38.8225%2C-77.0480%2C38.8320&layer=mapnik&marker=38.8272%2C-77.0565"
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="final-cta">
+        <div class="eyebrow" style="justify-content:center; color:var(--paper);">Ready When You Are</div>
+        <h2>Let's put it in writing<br>— then get it built.</h2>
+        <p>Call or email Santos directly for a reference quote on your remodeling, painting, cleaning, or repair
+            project.</p>
+        <div class="hero-actions">
+            <a href="tel:+17035550148" class="btn btn-solid">Call (703) 555‑0148</a>
+            <a href="mailto:Sarhcontractorsllc63@gmail.com"
+                class="btn btn-outline-light">Sarhcontractorsllc63@gmail.com</a>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+        <div class="wrap">
+            <div class="foot-top">
+                <div>
+                    <div class="foot-brand">
+                        <span class="brand-logo-tag"><img src="img/logo.png" alt="SARH Contractors LLC logo"></span>
+                        <span class="brand-word">SARH CONTRACTORS<span class="sub">LLC</span></span>
+                    </div>
+                    <p class="foot-tagline">Professional Remodeling Done Right.</p>
+                </div>
+                <div class="foot-links">
+                    <div class="foot-col">
+                        <span class="mono">Company</span>
+                        <a href="#who">Who We Are</a>
+                        <a href="#services">Services</a>
+                        <a href="#gallery">Gallery</a>
+                        <a href="#why">Why Us</a>
+                    </div>
+                    <div class="foot-col">
+                        <span class="mono">Contact</span>
+                        <a href="tel:+17035550148">(703) 555-0148</a>
+                        <a href="mailto:Sarhcontractorsllc63@gmail.com">Sarhcontractorsllc63@gmail.com</a>
+                        <span>1506 Commonwealth Ave</span>
+                        <span>Alexandria, VA 22301</span>
+                    </div>
+                </div>
+            </div>
+            <div class="foot-bottom">
+                <span>© 2026 SARH Contractors LLC — All rights reserved.</span>
+                <span>Owner — Santos Rivera</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const carousel = document.getElementById('carousel');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        function scrollAmount() {
+            const card = carousel.querySelector('figure');
+            return card ? card.getBoundingClientRect().width + 18 : 340;
+        }
+        prevBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: -scrollAmount() * 2, behavior: 'smooth' });
+        });
+        nextBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: scrollAmount() * 2, behavior: 'smooth' });
+        });
+    </script>
+
+</body>
+
+</html>
